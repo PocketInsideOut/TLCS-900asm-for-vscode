@@ -1,0 +1,25 @@
+{
+    "name": "tlcs-900asm",
+    "displayName": "tlcs-900asm",
+    "description": "Support for TLCS-900 Assembly Language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.66.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "asm",
+            "aliases": ["TLCS-900", "asm"],
+            "extensions": [".asm"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "asm",
+            "scopeName": "source.tlcs900",
+            "path": "./syntaxes/asm.tmLanguage.json"
+        }]
+    }
+}
