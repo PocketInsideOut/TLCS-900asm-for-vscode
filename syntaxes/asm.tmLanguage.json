@@ -7,14 +7,71 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#instructions"
 		}
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.asm",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+			"patterns": [
+				{
+					"name":"constant.language",
+					"match": "(?i)\\b(prog|abs|align|code|date|db|dd|dfb|dfd|dfl|dfp|dfw|dl|dp|dw|dsb|dsd|dsl|dsp|dsw|end|equ|extern|fdatad|fdatas|fdatax|file|fimdh|fimdl|dims|fimxh|fimxl|fimxm|large|line|medium|module|org|public|romdata|section|sizeof|small|startof|symbol_a|symbol_b|symbol_n|symbol_t)\\b"
+				},
+				{
+					"name":"constant.language",
+					"match": "(?i)\\$(maximum|include)"
+				},
+				{
+					"name":"constant.language",
+					"match": "(\\.\\.@)((?:[[:alpha:]_?](?:[[:alnum:]_$#@~.?]*)))(?:(\\:)?|\\b)"
+				},
+				{
+					"name":"keyword.other.asm",
+					"match": "(?i)\\b(NZ|EQ|W|A|B|C|D|E|H|L|WA|BC|DE|HL|IX|IY|IZ|SP|XWA|XBC|XDE|XHL|XIX|XIY|XIZ|XSP|QWA|QBC|QDE|QHL)(\\+|)\\b"
+				},
+				{
+					"name":"keyword.other.asm",
+					"match": "(?i)\\b(Q|X|R)(W|B|D|H|)(A|C|E|L|)(0|1|2|3|)\\b"
+				},
+				{
+					"name":"keyword.other.asm",
+					"match": "(?i)\\b(Q|X)(W|B|D|H|)(A|C|E|L|)\\b"
+				},
+				{
+					"name":"keyword.other.asm",
+					"match": "(?i)\\bQI(X|Y|Z)(H|L)\\b"
+				},
+				{
+					"name":"comment.line",
+					"match":";[^\\*|~].*"
+				},
+				{
+					"name":"comment.line.double-slash",
+					"match": "//.*"
+				},
+				{
+					"name":"comment.line.percentage",
+					"match":";~.*"
+				},
+				{
+					"name":"comment.block.documentation",
+					"match":";\\*.*\\*"
+				},
+				{
+					"name":"constant.numeric.hexadecimal",
+					"match":"\\b0x\\w[0-9,a-z]*\\b"
+				},
+				{
+					"name":"constant.numeric.octal",
+					"match":"\\b0\\w[0-7]*\\b"
+				},
+				{
+					"name":"constant.numeric.octal",
+					"match":"\\b0(b|y)\\w[0|1]*\\b"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.asm",
@@ -24,6 +81,14 @@
 				{
 					"name": "constant.character.escape.asm",
 					"match": "\\\\."
+				}
+			]
+		},
+		"instructions": {
+			"patterns": [
+				{
+					"name":"entity.name.function",
+					"match": "(?i)\\b(ADC|ADCW|ADD|ADDW|AND|ANDCF|ANDW|BIT|BS1|BS1B|BS1F|CALL|CALR|CCF|CHG|CI|CP|CPB|CPD|CPDR|CPIR|CPL|CPW|DAA|DBC|DEC|DECF|DECW|DI|DIV|DIVS|DJNZ|EI|EX|EXTS|EXTZ|HALFT|INC|INCF|INCW|JP|JR|JRL|LD|LDA|LDAR|LDC|LDCF|LDD|LDDR|LDDRW|LDDW|LDB|LDF|LDI|LDIR|LDIRW|LDIW|LDW|LDW|LDW|LDX|LINK|MDEC|MDEC1|MDEC2|MDEC4|MINC|MINC1|MINC2|MINC4|MIRR|MUL|MULA|MULS|NEG|NOP|OR|ORCF|ORW|PAA|POP|POP\\sSR|POPW|PUSH|PUSH\\sSR|PUSHW|RCF|RES|RET|RETD|RETI|RL|RLC|RLCW|RLD|RLW|RR|RRC|RRCW|RRD|RRW|SBC|SBCW|SCC|SCF|SET|SLA|SLAW|SLL|SLLW|SRA|SRAW|SRL|SRLW|STCD|STCF|SUB|SUBW|SWI|TSET|UNLK|XOR|XOR|XORCF|XORW|ZCF)\\b"
 				}
 			]
 		}
